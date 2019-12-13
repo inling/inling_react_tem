@@ -7,9 +7,9 @@ import ISider from '../../parts/iSider/iSider';
 class home extends React.Component {
     render() {
         return (
-            <Layout>
+            <Layout style = {{ background: '#fff' }}>
                 <IHeader theme="light" />
-                <Layout>
+                <Layout className="contentAndSiderContainer">
                     <IContent />
                     <ISider />
                 </Layout>
