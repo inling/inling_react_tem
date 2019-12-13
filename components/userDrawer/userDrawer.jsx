@@ -61,3 +61,31 @@ render() {
                     onClose={this.onClose}
                     visible={this.state.visible}
                 >
+                    <Menu
+                        theme="light"
+                        selectable={false}
+                        className="popContent"
+                    >
+                        <Menu.Item>
+                            <span>题库</span>
+                        </Menu.Item>
+                    </Menu>
+                    <Divider />
+                    <Menu
+                        theme="light"
+                        selectable={false}
+                        className="popContent"
+                    >
+                        {this.state.maniMenu.map(item => (
+                            <Menu.Item key={item.mid}>
+                                {
+                                    item.twoToneColor === null
+                                        ? <Icon type={item.icon} />
+                                        : <Icon type={item.icon} theme="twoTone" twoToneColor={item.twoToneColor} />
+                                }
+                                <span>{item.name}</span>
+                            </Menu.Item>
+                        ))}
+                    </Menu>
+                    <Divider />
+                   
