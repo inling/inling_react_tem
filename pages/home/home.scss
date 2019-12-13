@@ -1,1 +1,21 @@
 
+.contentAndSiderContainer {
+    margin:  0 auto;
+}
+
+
+@media (min-width: 768px){
+    .contentAndSiderContainer {
+        width: 750px;
+    }
+}
+@media (min-width: 992px){
+    .contentAndSiderContainer {
+        width: 970px;
+    }
+}
+@media (min-width: 1200px){
+    .contentAndSiderContainer {
+        width: 1170px;
+    }
+}
