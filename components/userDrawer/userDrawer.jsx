@@ -95,6 +95,6 @@ render() {
                     >
                         {this.state.userMenu.map(item => (
                             <Menu.Item key={item.mid}>
-                                {
-                                    item.twoToneColor === null ? <Icon type={item.icon} /> : <Icon type={item.icon} theme="twoTone" twoToneColor={item.twoToneColor} />
-                                }
+                                {item.twoToneColor === null ? <Icon type={item.icon} /> : <Icon type={item.icon} theme="twoTone" twoToneColor={item.twoToneColor} />}
+                                s
+                                
