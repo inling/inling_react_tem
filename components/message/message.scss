@@ -1,0 +1,11 @@
+.messageCard{
+    width: 480px;
+    height: 480px;
+    .ant-popover-inner-content {
+        padding: 0 16px;
+        .ant-tabs-bar.ant-tabs-top-bar{
+            margin: 0;
+        }
+    }
+}
+    
