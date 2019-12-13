@@ -1,12 +1,14 @@
 import React from 'react';
 import './iSider.scss';
-import {Layout} from 'antd';
+import {Layout,Divider} from 'antd';
 
 const {Sider} = Layout;
 class iSider extends React.Component{
     render(){
         return (
-            <Sider></Sider>
+            <Sider className="slider" style={{background:'#fff',border:'1px solid red'}}>
+                <Divider type="vertical"/>
+            </Sider>
         )
     }
 }
