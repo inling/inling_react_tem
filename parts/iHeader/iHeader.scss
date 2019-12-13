@@ -1,0 +1,24 @@
+.header{
+    height: 48px;
+    background: #fff; 
+    z-index: 10;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    min-width: 778px;
+    .largeScreenNavbar{
+        display: flex;
+        justify-content: space-between;
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 778px){
+    .header{
+        &.ant-layout-header{
+            min-width: unset;
+            padding: 0 10px;
+        }
+    }
+}
