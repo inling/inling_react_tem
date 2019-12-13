@@ -35,3 +35,29 @@ class userDrawer extends React.Component {
             visible: false
         });
     }
+render() {
+
+        return (
+            <span>
+                <Button icon="menu" onClick={this.showDrawer} />
+                <Drawer
+                    title={
+                        <div style={{ cursor: 'pointer' }}>
+                            <UserPopover
+                                isVisible={false}
+                                popPlacement="bottomRight"
+                                popTrigger="click"
+                                avaSize="large"
+                                avaSrc="./user/xiao-li-qwd/avatar/20180424150900_3Erwd.jpeg"
+                                avaStyle={{ marginTop: '-2px' }}
+                            />
+                            <span style={{ color: '#37474F', fontSize: '14px', marginLeft: '10px' }}>
+                                小里QWD
+                            </span>
+                        </div>
+                    }
+                    placement="left"
+                    closable={false}
+                    onClose={this.onClose}
+                    visible={this.state.visible}
+                >
