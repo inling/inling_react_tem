@@ -93,3 +93,6 @@ render() {
                         selectable={false}
                         className="popContent"
                     >
+                        {this.state.userMenu.map(item => (
+                            <Menu.Item key={item.mid}>
+                                {
