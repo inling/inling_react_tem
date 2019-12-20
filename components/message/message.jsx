@@ -54,7 +54,8 @@ class message extends React.Component {
         }
         return (
             <Popover overlayClassName="messageCard" content={content} {...mesPopover} >
-                <IconBadge dot={true} type="bell" style={this.props.mesStyle} />
+                <IconBadge dot={true} type="bell" style={{marginRight:'5px'}} />
+                <span style={this.props.mesStyle}>消息</span>
             </Popover>
         )
     }
