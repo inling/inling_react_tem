@@ -1,5 +1,5 @@
 .header{
-    height: 48px;
+    height: 155px;
     background: #fff; 
     z-index: 10;
     box-shadow: 0 1px 4px rgba(0,0,0,0.1);
@@ -21,4 +21,31 @@
             padding: 0 10px;
         }
     }
+}
+
+
+.bgImage{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height:155px;
+    width:100%;
+    background: url(/image/7197cae46569a49abd98e0c51348068831be6a85.png) no-repeat center;
+    background-size:cover;
+    z-index: -1;
+    line-height: 155px;
+    text-align: center;
+}
+
+.bgModal{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height:100px;
+    width:100%;
+    z-index: -1;
+    line-height: 155px;
+    text-align: center;
+    /*background: rgba(0,0,0,0.1);*/
+    background: linear-gradient(rgba(0,0,0,.2),transparent)
 }
