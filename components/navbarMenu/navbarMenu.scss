@@ -2,3 +2,11 @@
     height: 48px;
     line-height: 48px;
 }
+
+.promoteBtn{
+    color: rgb(121, 85, 72) !important;
+    border-color: rgb(215, 204, 200) !important;
+    &:hover{
+        border-color: rgb(121, 85, 72) !important;
+    }
+}
