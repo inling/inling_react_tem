@@ -15,7 +15,7 @@ class nineIcon extends React.Component{
                     style={this.props.avaStyle}
                 />
                 <span
-                    style={{display:'inline-block', marginLeft: '6px' }}>
+                    style={{display:'inline-block', marginLeft: '6px',color:'white' }}>
                     小九
                 </span>
             </div>
