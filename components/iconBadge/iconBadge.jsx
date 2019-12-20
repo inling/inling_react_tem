@@ -7,7 +7,7 @@ class iconBadge extends React.Component {
         return (
             <span style={style}>
                 <Badge {...others}>
-                    <Icon type={type} />
+                    <Icon type={type} style={{color:'white'}}/>
                 </Badge>
             </span>
         )
