@@ -19,7 +19,7 @@ class smallScreenNavbar extends React.Component {
                         isVisible={false}
                         popPlacement="bottomRight"
                         popTrigger="click"
-                        avaSize="small"
+                        
                         avaSrc="./user/xiao-li-qwd/avatar/20180424150900_3Erwd.jpeg"
                         avaStyle={{marginTop:'-2px'}}
                     />
