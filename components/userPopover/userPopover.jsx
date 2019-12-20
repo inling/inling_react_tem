@@ -69,7 +69,7 @@ class userPopover extends React.Component {
         }
         const avaProps = {
             shape: this.props.avaShape ? this.props.avaShape : 'circle',
-            size: this.props.avaSize ? this.props.avaSize : 'small',
+            size: this.props.avaSize ? this.props.avaSize : 'default',
             src: this.props.avaSrc ? this.props.avaSrc : '',
             style: this.props.avaStyle ? this.props.avaStyle : {}
         }
