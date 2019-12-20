@@ -35,6 +35,12 @@ class iHeader extends React.Component {
     render() {
         return (
             <Header {...this.props} className="header">
+                <div className="bgImage"></div>   
+                <div className="bgModal">
+                    <span style={{color: 'white',fontSize:'36px'}}>
+                        Nine 的小站
+                    </span>
+                </div>
                 {
                     this.state.smallScreen ? (
                         <SmallScreenNavbar />
