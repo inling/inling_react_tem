@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-const MYSQL_CONFIG = require('../config/mysql_config');
+const { MYSQL_CONFIG } = require('../config/mysql_config');
 
 //创建连接池
 const pool = mysql.createPool(MYSQL_CONFIG);
@@ -25,3 +25,5 @@ const query = (sql, val, callback) => {
 }
 
 module.exports = query;
+
+/**v1.0.0 */
