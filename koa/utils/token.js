@@ -1,8 +1,12 @@
 const jwt = require('jsonwebtoken');
-const koajwt = require('koa-jwt');
+const { TOKEN_SECRET } = require('../config/token_config');
 
-const getToken = payload => {
-    return jwt.sign(payload, 'tomandjerry', { expiresIn: '1h' });
+exports.setToken = payload => {
+    return jwt.sign(payload, TOKEN_SECRET, { expiresIn: '1h' });
 }
 
-module.exports = getToken
+exports.verToken = token => {
+    return jwt.verify(token.split(' ')[1], TOKEN_SECRET);
+}
+
+/**v1.0.0 */
