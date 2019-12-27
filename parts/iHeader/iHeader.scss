@@ -30,6 +30,7 @@
     top: 0;
     height:155px;
     width:100%;
+    min-width: 320px;
     background: url(/image/7197cae46569a49abd98e0c51348068831be6a85.png) no-repeat center;
     background-size:cover;
     z-index: -1;
@@ -49,3 +50,5 @@
     /*background: rgba(0,0,0,0.1);*/
     background: linear-gradient(rgba(0,0,0,.2),transparent)
 }
+
+/**v1.0.0*/
