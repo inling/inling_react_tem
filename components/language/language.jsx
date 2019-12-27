@@ -4,7 +4,7 @@ import { Menu, Dropdown, Icon } from 'antd';
 
 class language extends React.Component {
     render() {
-        var s=this.props.style;
+        let s=this.props.style;
         s.color='white';
         const en_ch = (
             <Menu>
@@ -24,6 +24,9 @@ class language extends React.Component {
 }
 
 export default language;
+
+/**v1.0.0 */
+
 
 
 
