@@ -1,6 +1,7 @@
 import React from 'react';
 import './iHeader.scss';
 import { Layout } from 'antd';
+import API from '../../../api/user_api';
 import NavbarMenu from '../../components/navbarMenu/navbarMenu';
 import NavbarList from '../../components/navbarList/navbarList';
 import SmallScreenNavbar from '../../components/smallScreenNavbar/smallScreenNavbar';
@@ -20,6 +21,9 @@ class iHeader extends React.Component {
         this.mediaQueryString()
         smallScreen.addListener(this.mediaQueryString)
 
+        API.getUserInfo((res)=>{
+            console.log(res)
+        })
     }
 
     componentWillUnmount() {
@@ -57,3 +61,5 @@ class iHeader extends React.Component {
 }
 
 export default iHeader;
+
+/**v1.0.0 */
