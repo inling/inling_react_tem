@@ -1,0 +1,51 @@
+/*页面主体宽度适配*/
+.i-content{
+    margin:  0 auto;
+    width: 100%;
+    @media (min-width: 768px){
+        width: 750px;
+    }
+    @media (min-width: 992px){
+        width: 970px;
+    }
+    @media (min-width: 1200px){
+        width: 1170px;     
+    }
+}
+
+/*页面背景高度*/
+.i-bg{
+    background: #fff;
+    min-height: 100vh;
+}
+
+/*登陆注册大标题*/
+.title-line {
+    height: 28px;
+    margin: 0 auto;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 28px;
+    text-align: center;
+    .tit {
+        height: 56px;
+        line-height: 56px;
+        margin: 0 auto;
+        padding: 0 20px;
+        font-size: 38px;
+        background: #fff;
+        text-align: center;
+    }
+}
+
+/*注册登陆框适配*/
+.login-info{
+    width: 100%;
+    @media (min-width: 768px){
+        width: 400px;
+    }
+    margin: '60px auto 0';
+    text-align: 'center';
+    list-style: 'none';
+    padding: 0;
+}
+/**v1.0.0 */
