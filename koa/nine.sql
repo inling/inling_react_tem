@@ -3,12 +3,13 @@ DROP DATABASE IF EXISTS nine;
 CREATE DATABASE nine CHARSET=utf8;
 USE nine;
 CREATE TABLE user(
-    uid INT PRIMARY KEY AUTO_INCREMENT,
-    uname VARCHAR(16),
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nickname VARCHAR(16),
     upwd VARCHAR(128),
     phone VARCHAR(11),
     email VARCHAR(256),
-    userType INT
+    userType INT,
+    publicKey VARCHAR(1024),
+    privateKey VARCHAR(1024)
 );
 
-INSERT INTO user VALUES(0,'小里QWD','123456','17621305739','giraffe.aup@gmail.com',1);
