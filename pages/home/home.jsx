@@ -11,9 +11,9 @@ import Snow from '../../components/snow/snow';
 class home extends React.Component {
     render() {
         return (
-            <Layout style = {{ background: '#fff',minHeight:'100vh' }}>
+            <Layout className="i-bg">
                 <IHeader theme="light" />
-                <Layout className="contentAndSiderContainer">
+                <Layout className="i-content">
                     <IContent />
                     <ISider />
                 </Layout>
@@ -25,3 +25,4 @@ class home extends React.Component {
 }
 
 export default home;
+/**v1.0.0 */
