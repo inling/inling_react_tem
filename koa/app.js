@@ -11,8 +11,6 @@ app.use(response_header);
 
 //Token 异常处理401
 app.use(token_errors);
-//Token 验证
-app.use(token_verify);
 //Token 路由过滤
 app.use(token_filter);
 
