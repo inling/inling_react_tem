@@ -3,7 +3,7 @@ import './iconBadge.scss';
 import { Badge, Icon } from 'antd';
 class iconBadge extends React.Component {
     render() {
-        var { type, style, ...others } = this.props;
+        let { type, style, ...others } = this.props;
         return (
             <span style={style}>
                 <Badge {...others}>
@@ -15,3 +15,5 @@ class iconBadge extends React.Component {
 }
 
 export default iconBadge;
+
+/**v1.0.0 */
