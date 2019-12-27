@@ -1,46 +1,100 @@
-<Content className="i-content login-content">
+import React from 'react';
+import './login.scss';
+import { Input, Button, Layout, message, Icon, Checkbox } from 'antd';
+import { Link } from 'react-router-dom';
+import API from '../../../api/user_api';
+import IHeader from '../../parts/iHeader/iHeader';
+import IFooter from '../../parts/iFooter/iFooter';
+
+const { Content } = Layout;
+class login extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            nickname: '',
+            nicknameInput:true,
+            upwd: '',
+            upwdInput:true,
+            loginCode:0
+        }
+    }
+    handleLoginClick = async () => {
+        this.setState({
+            nicknameInput:this.state.nickname ? true : false,
+            upwdInput:this.state.upwd ? true : false,
+            loginCode:0
+        })
+        if(!this.state.nickname || !this.state.upwd){
+            return;
+        }
+
+        let userInfo = {
+            nickname: this.state.nickname,
+            upwd: this.state.upwd
+        }
+        let pk = await API.pk(this.state.nickname,(res)=>{
+            return res.pk;
+        })
+        
+        await API.login(userInfo, res => {
+            this.setState({
+                loginCode: res.code
+            })
+            if (res.code === 0) {
+                message.success('登陆成功');
+                localStorage.setItem('token', res.token);
+                document.cookie = `token=${res.token};expires=Sun, 31 Dec 2040 12:00:00 UTC; path=/`;
+            } else {
+                message.error('登陆失败');
+                this.setState({
+                    nicknameInput: false,
+                    upwdInput: false
+                })
+            }
+        })
+
+    }
+    handleDirectClick = ()=>{
+        this.props.history.push('/register')
+    }
+    handleNicknameChange = e => {
+        this.setState({
+            nickname: e.target.value
+        })
+    }
+    handleUpwdChange = e => {
+        this.setState({
+            upwd: e.target.value
+        })
+    }
+    render() {
+        return (
+            <Layout className="i-bg">
+                <IHeader />
+                <Content className="i-content login-content">
                     <div>
                         <div className="title-line">
-                            <span className="tit" style={{ fontSize: '38px' }}>登录</span>
+                            <span className="tit">登录</span>
                         </div>
                     </div>
-                    <ul className="login-info" style={{ margin: '60px auto 0', textAlign: 'center', listStyle: 'none', padding: 0 }}>
-                        <li>
-                            <Input className="error" size="large" placeholder="你的手机号/邮箱" value={this.state.nickname} onChange={this.handleNicknameChange} />
-                            <div style={{ height: '20px', margin: '6px 0' }}></div>
+                    <ul className="login-info">
+                        <li> 
+                            <Input 
+                                size="large" 
+                                placeholder="你的手机号/邮箱"
+                                className={this.state.nicknameInput ? null : 'error'}
+                                value={this.state.nickname} 
+                                onChange={this.handleNicknameChange} />
+                            <div className="err-message">
+                                {
+                                    !this.state.nicknameInput && 
+                                        (this.state.loginCode === 0 
+                                            ?<p className="tips">请输入注册时用的邮箱或者手机号呀</p>
+                                            :'')
+                                }                      
+                            </div>
                         </li>
                         <li>
-                            <Input.Password size="large" placeholder="密码" value={this.state.upwd} onChange={this.handleUpwdChange} />
-                            <div style={{ height: '20px', margin: '6px 0' }}></div>
-                        </li>
-                        <li className="remember">
-                            <label>
-                                <input type="checkbox" />记住我
-						        <span>不是自己的电脑上不要勾选此项</span>
-                                <a target="_blank" href="/" className="forget-password">忘记密码?</a>
-                                <a target="_blank" href="/" className="not-checkout" style={{ marginRight: '10px' }}>无法验证?</a>
-                            </label>
-                        </li>
-                        <li style={{ display: 'flex', justifyContent: 'space-between' }}>
-                            <Button style={{ width: '45%' }} size="large" type="primary" onClick={this.handleClick}>登陆</Button>
-                            <Button style={{ width: '45%' }} size="large">注册</Button>
-                        </li>
-                        <li className="sns">
-                            <a href="/" style={{ marginRight: "20px", color: '#717171' }}>
-                                <Icon type="wechat" style={{ color: '#2EBB4F', fontSize: '18px', verticalAlign: 'middle', marginRight: '5px' }} />
-                                微信账号登录</a>
-                            <a href="/" style={{ color: '#717171' }}>
-                                <Icon type="qq" style={{ color: '#1890ff', fontSize: '18px', verticalAlign: 'middle', marginRight: '4px' }} />
-                                QQ账号登录</a>
-                        </li>
-                    </ul>
-                </Content>
-                <IFooter />
-            </Layout>
-        )
-    }
-}
-
-export default login;
-
-/**v1.0.0 */
+                            <Input.Password 
+                                size="large" 
+                                placeholder="密码" 
