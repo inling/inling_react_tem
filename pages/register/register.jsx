@@ -1,37 +1,100 @@
-<Content className="i-content register-content">
+import React from 'react';
+import './register.scss';
+import { Input, Button, Layout, Select, Checkbox } from 'antd';
+import { Link } from 'react-router-dom';
+import API from '../../../api/user_api';
+import IHeader from '../../parts/iHeader/iHeader';
+import IFooter from '../../parts/iFooter/iFooter';
+import { location_cn } from '../../../assets/location/location';
+
+const { Content } = Layout;
+const InputGroup = Input.Group;
+const { Option } = Select;
+class register extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            nickname: '',
+            nicknameInput:true,
+            nicknameMes:'',
+            upwd: '',
+            upwdInput:true,
+            registerAgree: false
+        }
+    }
+    handleClick = () => {
+        this.setState({
+            nicknameInput:this.state.nickname ? true : false,
+            nicknameMes:this.state.nickname ?'':'请告诉我你的昵称吧'
+        })
+        if(!this.state.nickname){
+            return;
+        }
+        let userInfo = {
+            nickname: this.state.nickname,
+            upwd: this.state.upwd
+        }
+        API.register(userInfo, res => {
+            console.log(res)
+        })
+    }
+    handleNicknameChange = e => {
+        let cur_val = e.target.value;
+        this.setState({
+            nickname: cur_val,
+            nicknameInput: cur_val ? true : false,
+            nicknameMes: cur_val ? '' : '请告诉我你的昵称吧'
+        })
+        if (!cur_val) {
+            return;
+        }
+        API.nickname(cur_val, res => {
+            this.setState({
+                nicknameInput: res.code === 0 ? true : false,
+                nicknameMes: res.code === 0 ? '' : res.message
+            })
+        })
+    }
+    handleUpwdChange = e => {
+        this.setState({
+            upwd: e.target.value
+        })
+    }
+    handleAgreeChange = () => {
+        this.setState({
+            registerAgree: !this.state.registerAgree
+        })
+    }
+    //查询昵称是否被占用
+    queryNicknameIsExist(nickname) {
+        API.nickname(nickname, res => {
+            this.setState({
+                nicknameInput: res.code === 0 ? true : false,
+                nicknameMes: res.code === 0 ? '' : res.message
+            })
+        })
+    }
+    render() {
+        return (
+            <Layout className="i-bg">
+                <IHeader />
+                <Content className="i-content register-content">
                     <div>
                         <div className="title-line">
-                            <span className="tit" style={{ fontSize: '38px' }}>注册</span>
+                            <span className="tit">注册</span>
                         </div>
                     </div>
-                    <ul className="login-info" style={{ margin: '60px auto 0', textAlign: 'center', listStyle: 'none', padding: 0 }}>
+                    <ul className="register-info">
                         <li>
-                            <Input  size="large" placeholder="昵称" value={this.state.nickname} onChange={this.handleNicknameChange} />
-                            <div style={{ height: '20px', margin: '6px 0' }}></div>
-                        </li>
-                        <li>
-                            <Input.Password size="large" placeholder="密码" visibilityToggle={false} value={this.state.upwd} onChange={this.handleUpwdChange} />
-                            <div style={{ height: '20px', margin: '6px 0' }}></div>
-                        </li>
-                        <li className="remember">
-                            <label>
-                                <input type="checkbox" />记住我
-						        <span>不是自己的电脑上不要勾选此项</span> 
-                                <a target="_blank" href="/" className="forget-password">忘记密码?</a> 
-                                <a target="_blank" href="/" className="not-checkout" style={{marginRight:'10px'}}>无法验证?</a>
-                            </label>
-                        </li>
-                        <li style={{display:'flex',justifyContent:'space-between'}}>
-                            <Button block type="primary" onClick={this.handleClick} size="large">注册</Button>
-                        </li>
-                    </ul>
-                </Content>
-                <IFooter />
-            </Layout>
-        )
-    }
-}
-
-export default register;
-
-/**v1.0.0 */
+                            <Input
+                                size="large"
+                                placeholder="昵称"
+                                value={this.state.nickname}
+                                onChange={this.handleNicknameChange} />
+                            <div className="err-message">
+                                {
+                                    !this.state.nicknameInput&&
+                                        <p className="tips">{this.state.nicknameMes}</p>
+                                }
+                                
+                            </div>
