@@ -1,80 +1,73 @@
-.title-line {
-    height: 28px;
-    margin: 0 auto;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 28px;
-    text-align: center;
-    .tit {
-        height: 56px;
-        line-height: 56px;
-        margin: 0 auto;
-        padding: 0 20px;
-        font-size: 40px;
-        background: #fff;
-        text-align: center;
-    }
-}
-.login-info {
-    width: 100%;
-}
-@media (min-width: 768px){
-    .login-info {
-        width: 400px;
-    }
-}
-
-.remember{
-    margin: 10px 0;
-    color: #717171;
-    font-size: 12px;
-    text-align: left;
-    input{
-        vertical-align: sub;
-    }
-    span{
-        color: #bbb;
-        margin-left: 10px;
-    }
-    a{
-        float: right;
-    }
-}
-
-.sns {
-    text-align: left;
-    padding: 12px 0;
-    font-size: 12px;
-}
-
 .i-content.login-content{
     padding: 25px;
-}
 
-
-/*待移动的公共样式*/
-.i-content{
-    margin:  0 auto;
-    width: 100%;
-    @media (min-width: 768px){
-        width: 750px;
-    }
-    @media (min-width: 992px){
-        width: 970px;
-    }
-    @media (min-width: 1200px){
-        width: 1170px;     
-    }
-}
-
-input.error{
-    border-color: #f66495;
-    &:hover{
-        border-color: #f66495;
-    }
-    &:focus{
-        border-color: #f66495;
-        -webkit-box-shadow: 0 0 0 2px rgba(247, 185, 245, 0.7);
-        box-shadow: 0 0 0 2px rgba(247, 185, 245, 0.7)
+    /*注册框大小适配*/
+    .login-info{
+        width: 100%;
+        @media (min-width: 768px){
+            width: 400px;
+        }
+        margin: 60px auto 0;
+        text-align: center;
+        list-style: none;
+        padding: 0;
+        .err-message{
+            height: 20px;
+            margin: 6px 0;
+            .tips{
+                font-size: 12px;
+                color:#f66495;
+                text-align: left;
+            }    
+        }
+        .remember{
+            margin: 10px 0;
+            color: #717171;
+            font-size: 12px;
+            text-align: left;
+            .me{
+                font-size:12px;
+                @media (max-width: 768px){
+                    .bigscreen{
+                        display: none;
+                    }            
+                }
+            }
+            span{
+                color: #717171;
+            }
+            a{
+                float: right;
+            }
+        }
+        .btn-box{
+            display: flex;
+            justify-content: space-between;
+        }     
+        .sns {
+            text-align: left;
+            padding: 12px 0;
+            font-size: 12px;
+            .wechat-href{
+                margin-right: 20px;
+                color: #717171;
+                i{
+                    color: #2EBB4F;
+                    font-size: 18px;
+                    vertical-align: middle;
+                    margin-right: 5px
+                }
+            }
+            .qq-href{
+                color: #717171;
+                i{
+                    color: #1890ff;
+                    font-size: 18px;
+                    vertical-align: middle;
+                    margin-right: 4px
+                }
+            }
+        }
     }
 }
 
